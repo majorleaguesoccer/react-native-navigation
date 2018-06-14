@@ -26,6 +26,17 @@ class Navigator {
   }
 
   push(params = {}) {
+    const {screen, navigatorStyle: style} = params;
+    const hiddenTabBarStyle = { drawUnderTabBar: true, tabBarHidden: true }
+
+    // if screens are different than Main tabs, hide navigation tab
+    if(screen !== 'mls.Latest' || screen !== 'mls.Scores' || screen !== 'mls.More' ) {
+      const navigatorStyle = style ? {...style, ...hiddenTabBarStyle} : hiddenTabBarStyle;
+      return NavigationSpecific.push(this, {
+        ...params,
+        navigatorStyle
+      })
+    }
     return NavigationSpecific.push(this, params);
   }
 
