@@ -110,7 +110,7 @@ public class SlidingOverlay {
     protected ContentView createSlidingOverlayView(SlidingOverlayParams params) {
         final RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         lp.addRule(params.position == Position.Top ? RelativeLayout.ALIGN_PARENT_TOP : RelativeLayout.ALIGN_PARENT_BOTTOM);
-        lp.setMargins(0, 0 ,0, 66);
+        lp.setMargins(0, 0, 0, 66);
 
         final ContentView view = new ContentView(parent.getContext(), params.screenInstanceId, params.navigationParams);
         view.setViewMeasurer(new OverlayViewMeasurer(view));
