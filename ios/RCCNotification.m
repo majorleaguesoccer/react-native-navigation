@@ -299,6 +299,17 @@
 -(void)performShowWithCompletion:(void (^)(void))completion
 {
     self.hidden = NO;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+        CGRect r = [self frame];
+        if (screenSize.height == 812) {
+            r.origin.y = self.frame.origin.y - 90;
+        } else {
+            r.origin.y = self.frame.origin.y - 60;
+        }
+
+        [self setFrame:r];
+    }
     
     if ([[self.params valueForKeyPath:@"animation.animated"] boolValue])
     {
