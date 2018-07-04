@@ -38,7 +38,8 @@
         {
             UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(performDismiss)];
             swipeGesture.direction = [self swipeDirection];
-            [self addGestureRecognizer:swipeGesture];
+            // Condition above is wrong, we're commenting it to have quick workaround, but ideally we should fix the condition.
+            // [self addGestureRecognizer:swipeGesture];
         }
         
         if (params[@"shadowRadius"] != nil && [params[@"shadowRadius"] floatValue] > 0)
