@@ -6,6 +6,7 @@ import android.text.TextUtils;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+import com.reactnativenavigation.R;
 import com.reactnativenavigation.animation.VisibilityAnimator;
 import com.reactnativenavigation.params.AppStyle;
 import com.reactnativenavigation.params.ScreenParams;
@@ -119,7 +120,7 @@ public class BottomTabs extends AHBottomNavigation {
             if (bottomTabsColor.getColor() != getDefaultBackgroundColor()) {
                 setDefaultBackgroundColor(bottomTabsColor.getColor());
             }
-        } else if (Color.WHITE != getDefaultBackgroundColor()){
+        } else if (Color.WHITE != getDefaultBackgroundColor()) {
             setDefaultBackgroundColor(Color.WHITE);
         }
     }
@@ -145,12 +146,12 @@ public class BottomTabs extends AHBottomNavigation {
 
     private boolean hasBadgeTextColor() {
         return AppStyle.appStyle.bottomTabBadgeTextColor != null &&
-               AppStyle.appStyle.bottomTabBadgeTextColor.hasColor();
+                AppStyle.appStyle.bottomTabBadgeTextColor.hasColor();
     }
 
     private boolean hasBadgeBackgroundColor() {
         return AppStyle.appStyle.bottomTabBadgeBackgroundColor != null &&
-               AppStyle.appStyle.bottomTabBadgeBackgroundColor.hasColor();
+                AppStyle.appStyle.bottomTabBadgeBackgroundColor.hasColor();
     }
 
     private void setFontFamily() {
@@ -160,12 +161,12 @@ public class BottomTabs extends AHBottomNavigation {
     }
 
     private void setFontSize() {
-        if(AppStyle.appStyle.bottomTabSelectedFontSize != null &&  AppStyle.appStyle.bottomTabFontSize != null) {
+        if (AppStyle.appStyle.bottomTabSelectedFontSize != null && AppStyle.appStyle.bottomTabFontSize != null) {
             setTitleTextSizeInSp(AppStyle.appStyle.bottomTabSelectedFontSize, AppStyle.appStyle.bottomTabFontSize);
         }
     }
 
     private void setTabsHideShadow() {
-        setUseElevation(!AppStyle.appStyle.bottomTabsHideShadow);
+        setUseElevation(!AppStyle.appStyle.bottomTabsHideShadow, getResources().getDimension(R.dimen.tabsElevation));
     }
 }
