@@ -93,7 +93,7 @@ function _registerComponentRedux(screenID, generator, store, Provider, options) 
 function getRegisteredScreen(screenID) {
   const generator = registeredScreens[screenID];
   if (!generator) {
-    console.error(`Navigation.getRegisteredScreen: ${screenID} used but not yet registered`);
+    console.warn(`Navigation.getRegisteredScreen: ${screenID} used but not yet registered`);
     return undefined;
   }
   return generator();
