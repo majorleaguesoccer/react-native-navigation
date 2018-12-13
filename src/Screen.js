@@ -34,6 +34,7 @@ class Navigator {
       const navigatorStyle = style ? {...style, ...hiddenTabBarStyle} : hiddenTabBarStyle;
       return NavigationSpecific.push(this, {
         ...params,
+        passProps: { screenName: screen, ...params.passProps },
         navigatorStyle
       })
     }
