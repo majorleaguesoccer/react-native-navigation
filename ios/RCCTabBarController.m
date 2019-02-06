@@ -305,7 +305,7 @@
         if (viewController) {
             UIImage *iconImage = nil;
             id icon = actionParams[@"icon"];
-            BOOL disableIconTint = tabItemLayout[@"props"][@"disableTint"];
+            BOOL disableIconTint = actionParams[@"disableTint"];
             if (icon && icon != (id)[NSNull null]) {
                 if (disableIconTint) {
                     iconImage = [[RCTConvert UIImage:icon] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
