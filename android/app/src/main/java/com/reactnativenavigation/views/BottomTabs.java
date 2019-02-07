@@ -22,7 +22,7 @@ public class BottomTabs extends AHBottomNavigation {
 
     public BottomTabs(Context context) {
         super(context);
-        setForceTint(true);
+        setForceTint(false);
         setId(ViewUtils.generateViewId());
         createVisibilityAnimator();
         setStyle();
