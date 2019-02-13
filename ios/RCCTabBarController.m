@@ -303,28 +303,38 @@
         }
         
         if (viewController) {
-            UIImage *iconImage = nil;
-            id icon = actionParams[@"icon"];
-            BOOL disableIconTint = actionParams[@"disableTint"];
-            if (icon && icon != (id)[NSNull null]) {
-                if (disableIconTint) {
-                    iconImage = [[RCTConvert UIImage:icon] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-                } else {
-                    iconImage = [RCTConvert UIImage:icon];
+            NSString *remoteAsset = actionParams[@"remoteAsset"];
+            if (remoteAsset && remoteAsset != (id)[NSNull null]) {
+                NSURL *myURL = [NSURL URLWithString: remoteAsset];
+                NSData *myData = [NSData dataWithContentsOfURL:myURL];
+                UIImage *myImage = [[UIImage alloc] initWithData:myData];
+                
+                viewController.tabBarItem.image = [myImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+                viewController.tabBarItem.selectedImage = [myImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            }else{
+                UIImage *iconImage = nil;
+                id icon = actionParams[@"icon"];
+                BOOL disableIconTint = actionParams[@"disableTint"];
+                if (icon && icon != (id)[NSNull null]) {
+                    if (disableIconTint) {
+                        iconImage = [[RCTConvert UIImage:icon] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+                    } else {
+                        iconImage = [RCTConvert UIImage:icon];
+                    }
+                    viewController.tabBarItem.image = iconImage;
                 }
-                viewController.tabBarItem.image = iconImage;
-            }
-            
-            UIImage *iconImageSelected = nil;
-            id selectedIcon = actionParams[@"selectedIcon"];
-            if (selectedIcon && selectedIcon != (id)[NSNull null]) {
-                BOOL disableSelectedIconTint = [[RCCManager sharedInstance] getAppStyle][@"tabBarDisableSelectedIconTint"];
-                if (disableSelectedIconTint) {
-                iconImageSelected = [[RCTConvert UIImage:selectedIcon] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-                } else {
-                iconImageSelected = [RCTConvert UIImage:selectedIcon];
+                
+                UIImage *iconImageSelected = nil;
+                id selectedIcon = actionParams[@"selectedIcon"];
+                if (selectedIcon && selectedIcon != (id)[NSNull null]) {
+                    BOOL disableSelectedIconTint = [[RCCManager sharedInstance] getAppStyle][@"tabBarDisableSelectedIconTint"];
+                    if (disableSelectedIconTint) {
+                    iconImageSelected = [[RCTConvert UIImage:selectedIcon] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+                    } else {
+                    iconImageSelected = [RCTConvert UIImage:selectedIcon];
+                    }
+                    viewController.tabBarItem.selectedImage = iconImageSelected;
                 }
-                viewController.tabBarItem.selectedImage = iconImageSelected;
             }
             
             id label = actionParams[@"label"];
