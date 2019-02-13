@@ -54,7 +54,7 @@ dependencies {
     compile "com.facebook.react:react-native:+"
 
     // third party
-    compile "com.aurelhubert:ahbottomnavigation:2.3.0"
+    compile (name: 'ahbottomnavigation', ext: 'aar')
     compile 'com.balysv.materialmenu:material-menu-toolbar:1.5.4'
 
     // tests
