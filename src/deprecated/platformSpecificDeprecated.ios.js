@@ -530,6 +530,7 @@ function navigatorSetTabButton(navigator, params) {
       tabIndex: params.tabIndex,
       icon: params.icon,
       selectedIcon: params.selectedIcon,
+      remoteAsset: params.remoteAsset,
       label: params.label,
     });
   } else {
@@ -538,6 +539,7 @@ function navigatorSetTabButton(navigator, params) {
       contentType: 'NavigationControllerIOS',
       icon: params.icon,
       selectedIcon: params.selectedIcon,
+      remoteAsset: params.remoteAsset,
       label: params.label,
     });
   }
