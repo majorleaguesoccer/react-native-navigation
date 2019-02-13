@@ -531,6 +531,7 @@ function navigatorSetTabButton(navigator, params) {
       icon: params.icon,
       selectedIcon: params.selectedIcon,
       remoteAsset: params.remoteAsset,
+      remoteAssetSelected: params.remoteAssetSelected,
       label: params.label,
     });
   } else {
@@ -540,6 +541,7 @@ function navigatorSetTabButton(navigator, params) {
       icon: params.icon,
       selectedIcon: params.selectedIcon,
       remoteAsset: params.remoteAsset,
+      remoteAssetSelected: params.remoteAssetSelected,
       label: params.label,
     });
   }
