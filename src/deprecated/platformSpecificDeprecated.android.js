@@ -356,6 +356,7 @@ function createBottomTabScreen(tab, idx, params) {
   let newtab = adaptNavigationStyleToScreenStyle(tab);
   newtab = adaptNavigationParams(tab);
   newtab.overrideBackPress = tab.overrideBackPress;
+  newtab.forceTabIconTint = tab.forceTabIconTint === undefined ? true : tab.forceTabIconTint;
   newtab.timestamp = Date.now();
   return newtab;
 };
@@ -436,6 +437,7 @@ function navigatorSetTabButton(navigator, params) {
       params.icon = icon.uri;
     }
   }
+  console.log({TabParams: params})
   params.navigationParams = {};
   if (params.tabIndex >= 0) {
     newPlatformSpecific.setBottomTabButtonByIndex(params.tabIndex, params);
