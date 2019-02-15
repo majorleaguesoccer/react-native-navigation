@@ -310,8 +310,12 @@
                 NSURL *myURL = [NSURL URLWithString: remoteAsset];
                 NSData *myData = [NSData dataWithContentsOfURL:myURL];
                 UIImage *myImage = [[UIImage alloc] initWithData:myData];
+                UIImage *scaledImage =
+                [UIImage imageWithCGImage:[myImage CGImage]
+                                    scale:(myImage.scale * 3.0)
+                              orientation:(myImage.imageOrientation)];
                 
-                viewController.tabBarItem.image = myImage;
+                viewController.tabBarItem.image = scaledImage;
             }else if (icon && icon != (id)[NSNull null]) {
                 UIImage *iconImage = nil;
                 BOOL disableIconTint = actionParams[@"disableTint"];
@@ -331,8 +335,12 @@
                 NSURL *myURL = [NSURL URLWithString: remoteAssetSelected];
                 NSData *myData = [NSData dataWithContentsOfURL:myURL];
                 UIImage *myImage = [[UIImage alloc] initWithData:myData];
+                UIImage *scaledImage =
+                [UIImage imageWithCGImage:[myImage CGImage]
+                                    scale:(myImage.scale * 3.0)
+                              orientation:(myImage.imageOrientation)];
                 
-                viewController.tabBarItem.selectedImage = [myImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+                viewController.tabBarItem.selectedImage = [scaledImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
             }else if (selectedIcon && selectedIcon != (id)[NSNull null]) {
                 UIImage *iconImageSelected = nil;
                 if (selectedIcon && selectedIcon != (id)[NSNull null]) {
