@@ -118,6 +118,9 @@
         if (tabBarTranslucent) {
             self.tabBar.translucent = [tabBarTranslucent boolValue] ? YES : NO;
         }
+
+        [[UITabBar appearance] setBackgroundImage:[[UIImage alloc] init]];
+        [[UITabBar appearance] setShadowImage:[[UIImage alloc] init]];
         
         self.tabBar.clipsToBounds = NO;
         self.tabBar.layer.shadowOffset = CGSizeMake(0,0);
