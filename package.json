@@ -1,6 +1,6 @@
 {
   "name": "@mls-digital/react-native-navigation",
-  "version": "1.4.8",
+  "version": "1.4.9",
   "description": "React Native Navigation - truly native navigation for iOS and Android",
   "license": "MIT",
   "nativePackage": true,
