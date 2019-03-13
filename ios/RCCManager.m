@@ -59,7 +59,7 @@
 
 -(void)onRNReload {
     id<UIApplicationDelegate> appDelegate = [UIApplication sharedApplication].delegate;
-    appDelegate.window.rootViewController = nil;
+    appDelegate.window.rootViewController = [UIViewController new];
     [self setAppStyle:nil];
     [self clearModuleRegistry];
 }
